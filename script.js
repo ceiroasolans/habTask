@@ -460,6 +460,12 @@ function showSelectedImage() {
 }
 
 
+//Auxiliary
+function addButton(button) {
+    buttonsContainer.appendChild(button);
+    startTimer(); 
+}
+
 
 
 //Download
