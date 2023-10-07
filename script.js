@@ -303,5 +303,5 @@ function downloadCSV() {
 
 
 // Start the experiment
-instructions();
+showImage();
 
