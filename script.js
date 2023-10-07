@@ -177,9 +177,9 @@ function processRatings() {
             Math.abs(a.arousal - posImage.arousal) - Math.abs(b.arousal - posImage.arousal)
         ).slice(0, 2);
 
-        // From these two, choose the one with the closest valence
-        const matchedNegImage = closestArousalNegImages.sort((a, b) =>
-            Math.abs(a.valence - posImage.valence) - Math.abs(b.valence - posImage.valence)
+       // From these two, choose the one with a valence most symmetrically distant to 3 as the posImage
+        const matchedNegImage = closestArousalNegImages.sort((a, b) => 
+        Math.abs((3 - a.valence) - (posImage.valence - 3)) - Math.abs((3 - b.valence) - (posImage.valence - 3))
         )[0];
 
         // Remove the matched image from the validNegative array to prevent it from being matched again
@@ -272,7 +272,7 @@ function addButton(buttonElement, container = document.body) {
 //Download
 function convertToCSV(objArray) {
     const array = typeof objArray !== 'object' ? JSON.parse(objArray) : objArray;
-    let str = 'Task, ID, Trial, Valence, Arousal, ReactionTime, age, racialIdentity, genderIdentity, fatherEducation, motherEducation, familyIncome, yearInSchool, timestamp1\n';
+    let str = 'Task, ID, Trial, Valence, Arousal, ReactionTime\n';
 
     for (let i = 0; i < array.length; i++) {
         let line = '';
