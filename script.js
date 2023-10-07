@@ -59,8 +59,9 @@ let age, racialIdentity, genderIdentity, fatherEducation, motherEducation, famil
 
 function demographics() {
     timestamp1 = new Date();
+
     //Anchor to top 
-    document.body.classList.add('instructions-body-align');
+    //document.body.classList.add('instructions-body-align');
 
     // Prompt the user to enter their SID number
     participantSID = prompt("Please enter your SID number:", "");
