@@ -3,6 +3,7 @@ const ratingArea = document.getElementById('ratingArea');
 const likertRating = document.getElementById('likertRating');
 const feedbackContainer = document.getElementById('ratingArea');
 const fixationArea = document.getElementById('fixationArea');
+const message = document.getElementById("message");
 
 function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
