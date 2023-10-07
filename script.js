@@ -471,7 +471,8 @@ function createButton(text, callback) {
     button.style.borderRadius = "5px";
     button.style.cursor = "pointer";
     button.style.transition = "background-color 0.3s";
-    button.style.marginTop = "20px";  // Add some margin for spacing
+    button.style.display = "block";  // Makes the button a block element
+    button.style.margin = "20px auto";  // Center the button
     button.addEventListener("mouseover", () => {
         button.style.backgroundColor = "#0056b3";
     });
@@ -480,6 +481,7 @@ function createButton(text, callback) {
     });
     return button;
 }
+
 function addButton(buttonElement, container = document.body) {
     container.appendChild(buttonElement);
 }
