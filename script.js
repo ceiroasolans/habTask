@@ -256,13 +256,13 @@ function instructions() {
     `;
     message.style.display = 'block';  // Make sure the message is visible
 
-    clearButtons();
-    addButton(createButton("Next", () => {
+    // Use the new function to create and add the button
+    const nextButton = createButton("Next", () => {
         message.style.display = 'none';  // Make sure the message is visible
         showImage();
-    }));
+    });
+    message.appendChild(nextButton);  // Add the button to the message container
 }
-
 
 
 // Valence and Arousal ratings
@@ -459,14 +459,30 @@ function showSelectedImage() {
     }
 }
 
-
 //Auxiliary
-function addButton(button) {
-    buttonsContainer.appendChild(button);
-    startTimer(); 
+function createButton(text, callback) {
+    const button = document.createElement("button");
+    button.innerText = text;
+    button.onclick = callback;
+    button.style.padding = "10px 20px";
+    button.style.backgroundColor = "#007BFF";
+    button.style.color = "white";
+    button.style.border = "none";
+    button.style.borderRadius = "5px";
+    button.style.cursor = "pointer";
+    button.style.transition = "background-color 0.3s";
+    button.style.marginTop = "20px";  // Add some margin for spacing
+    button.addEventListener("mouseover", () => {
+        button.style.backgroundColor = "#0056b3";
+    });
+    button.addEventListener("mouseout", () => {
+        button.style.backgroundColor = "#007BFF";
+    });
+    return button;
 }
-
-
+function addButton(buttonElement, container = document.body) {
+    container.appendChild(buttonElement);
+}
 
 //Download
 function convertToCSV(objArray) {
