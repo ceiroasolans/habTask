@@ -3,7 +3,7 @@ const ratingArea = document.getElementById('ratingArea');
 const likertRating = document.getElementById('likertRating');
 const feedbackContainer = document.getElementById('ratingArea');
 const fixationArea = document.getElementById('fixationArea');
-const message = document.getElementById("message");
+
 
 function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
@@ -46,29 +46,6 @@ let selectedImages = [];
 let currentRepetition = 1;
 let currentSelectedImageIndex = 0;
 
-//Instructions
-function instructions() {
-    let message = document.getElementById("message");
-    message.innerHTML = `
-    <div style="max-width: 600px; margin: auto; padding: 20px; font-family: 'Helvetica Neue', Arial, sans-serif; line-height: 1.6; text-align: left; color: #333;">
-    <strong style="font-size: 1.3em; display: block; text-align: center; margin-bottom: 20px;"></strong>
-    <p style="margin-top: 20px;">You're about to watch a series of pictures.</p>
-    <ol style="padding-left: 30px; margin-top: 20px;">
-        <li style="margin-bottom: 10px;">Please sit back and immerse yourself!</li>
-        <li style="margin-bottom: 10px;">After every picture, you will complete a couple quick ratings.</li>
-    </ol>
-    <p style="margin-top: 20px; text-align: center; text-decoration: underline;">Make sure your window covers the entire screen!</p>
-</div>
-    `;
-    message.style.display = 'block';  // Make sure the message is visible
-
-    // Use the new function to create and add the button
-    const nextButton = createButton("Next", () => {
-        message.style.display = 'none';  // Make sure the message is visible
-        showImage();
-    });
-    message.appendChild(nextButton);  // Add the button to the message container
-}
 
 
 // Valence and Arousal ratings
