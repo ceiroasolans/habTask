@@ -76,7 +76,7 @@ function demographics() {
     // Main wrapper
     let wrapper = document.createElement('div');
     wrapper.id = "demographicsContainer";
-    wrapper.style.marginTop = '0rem'; // before 20rem
+    wrapper.style.marginTop = '10rem'; // before 20rem
     wrapper.style.paddingBottom = '5rem';
     wrapper.style.fontFamily = "'Arial', sans-serif";
 
