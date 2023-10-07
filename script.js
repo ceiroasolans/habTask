@@ -249,7 +249,7 @@ function instructions() {
     <p style="margin-top: 20px;">You're about to watch a series of pictures.</p>
     <ol style="padding-left: 30px; margin-top: 20px;">
         <li style="margin-bottom: 10px;">Please sit back and immerse yourself!</li>
-        <li style="margin-bottom: 10px;">After every picture, you will complete a few simple ratings.</li>
+        <li style="margin-bottom: 10px;">After every picture, you will complete a couple quick ratings.</li>
     </ol>
     <p style="margin-top: 20px; text-align: center; text-decoration: underline;">Make sure your window covers the entire screen!</p>
 </div>
