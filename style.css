@@ -10,6 +10,17 @@ body.instructions-body-align {
     align-items: flex-start !important;
   }
 
+ body.instructions-body-align .container {
+    align-items: flex-start;
+    padding-top: 20px;  
+}
+
+.noUi-tooltip {
+    top: 100%;
+    bottom: auto !important;
+    transform: translateY(6px);
+}
+
 .container {
     display: flex;
     flex-direction: column;
@@ -99,7 +110,3 @@ button:hover {
     overflow-wrap: break-word;
 }
 
-body.instructions-body-align .container {
-    align-items: flex-start;
-    padding-top: 20px;  
-}
