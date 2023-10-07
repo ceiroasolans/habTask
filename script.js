@@ -47,9 +47,15 @@ let currentRepetition = 1;
 let currentSelectedImageIndex = 0;
 
 
+// Validate the SID to be 10 digits
+function isValidSID(sid) {
+    return /^\d{10}$/.test(sid);
+}
+
 
 // Demographics
 let age, racialIdentity, genderIdentity, fatherEducation, motherEducation, familyIncome, yearInSchool, timestamp1;
+
 
 function demographics() {
     timestamp1 = new Date();
@@ -236,7 +242,7 @@ nextButton.onclick = function() {
     });
 
     // Append to main container
-    document.getElementById('mainContainer').appendChild(wrapper);
+    document.getElementById('.container').appendChild(wrapper);
 }
 
 

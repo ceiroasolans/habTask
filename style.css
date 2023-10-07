@@ -5,6 +5,11 @@ body, html {
     background-color: #f1f1f1;
 }
 
+
+body.instructions-body-align {
+    align-items: flex-start !important;
+  }
+
 .container {
     display: flex;
     flex-direction: column;
@@ -92,4 +97,9 @@ button:hover {
     text-align: center;
     height: auto;
     overflow-wrap: break-word;
+}
+
+body.instructions-body-align .container {
+    align-items: flex-start;
+    padding-top: 20px;  
 }
