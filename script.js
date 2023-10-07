@@ -520,5 +520,5 @@ function downloadCSV() {
 
 
 // Start the experiment
-instructions();
+demographics();
 
