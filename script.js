@@ -242,7 +242,7 @@ nextButton.onclick = function() {
     });
 
     // Append to main container
-    document.getElementById('.container').appendChild(wrapper);
+    document.getElement('.container').appendChild(wrapper);
 }
 
 
