@@ -213,7 +213,11 @@ nextButton.onclick = function() {
     instructions();  
 
 };
-    
+    let buttonContainer = document.createElement('div');
+    buttonContainer.style.display = "flex";
+    buttonContainer.style.justifyContent = "center";
+    buttonContainer.style.width = "100%";
+    buttonContainer.appendChild(nextButton);
 
     wrapper.appendChild(nextButton);
     // Check if all questions are answered
@@ -497,7 +501,7 @@ function addButton(buttonElement, container = document.body) {
 //Download
 function convertToCSV(objArray) {
     const array = typeof objArray !== 'object' ? JSON.parse(objArray) : objArray;
-    let str = 'Task, ID, Trial, Valence, Arousal, ReactionTime\n';
+    let str = 'Task, ID, Trial, Valence, Arousal, ReactionTime, age, racialIdentity, genderIdentity, fatherEducation, motherEducation, familyIncome, yearInSchool, timestamp1\n';
 
     for (let i = 0; i < array.length; i++) {
         let line = '';
