@@ -27,7 +27,7 @@ let images = [
     { path: "n1.png", id: "n1", valence: "negative" },
     { path: "n2.png", id: "n2", valence: "negative" },
     { path: "n3.png", id: "n3", valence: "negative" },
-    // { path: "n4.png", id: "n4", valence: "negative" },
+    { path: "n4.png", id: "n4", valence: "negative" },
     // { path: "n5.png", id: "n5", valence: "negative" },
     // { path: "n6.png", id: "n6", valence: "negative" },
     // { path: "n7.png", id: "n7", valence: "negative" },
@@ -203,17 +203,17 @@ function processRatings() {
 //Experimental set
 function showSelectedImage() {
     if (currentSelectedImageIndex < selectedImages.length) {
-        curatedImage.src = selectedImages[currentSelectedImageIndex].image.path;  // Change made here
+        curatedImage.src = selectedImages[currentSelectedImageIndex].image.path;  
         curatedImage.style.display = 'block';
         let startTime = new Date().getTime();
         setTimeout(() => {
             curatedImage.style.display = 'none';
-            createFeedbackForm(selectedImages[currentSelectedImageIndex].image, (responses) => {  // Change made here
+            createFeedbackForm(selectedImages[currentSelectedImageIndex].image, (responses) => { 
                 let reactionTime = new Date().getTime() - startTime;
                 ratings.push({ 
                     task: "experimental",
                     image: selectedImages[currentSelectedImageIndex],
-                    id: selectedImages[currentSelectedImageIndex].image.id,  // Change made here
+                    id: selectedImages[currentSelectedImageIndex].image.id,  
                     repetition: currentRepetition,
                     valence: responses.valence, 
                     arousal: responses.arousal,
@@ -234,7 +234,7 @@ function showSelectedImage() {
                     if (currentSelectedImageIndex < selectedImages.length) {
                         showSelectedImage();
                     } else {
-                        downloadCSV();// Optionally, you can handle the end of the experiment here.
+                        downloadCSV();// 
                     }
                 }, 500);
             });
