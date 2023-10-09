@@ -238,7 +238,7 @@ function showSelectedImage() {
                     }
                 }, 500);
             });
-        }, 1000); // for testing. should be 10 000
+        }, 3000); // for testing. should be 10 000
     }
 }
 
