@@ -151,7 +151,7 @@ function showImage() {
                 }
             }, 500);
         });
-    }, 1000); // should be 10 000; just testing 
+    }, 10000); // should be 10 000; just testing 
 }
 
 //Select images
