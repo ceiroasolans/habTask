@@ -132,11 +132,11 @@ function showImage() {
         curatedImage.style.display = 'none';
         createFeedbackForm(images[currentTrial], (responses) => {
             let reactionTime = new Date().getTime() - startTime;
-            let startTime = new Date().getTime();
+            let startingTime = new Date().getTime();
             ratings.push({ 
                 SID: participantSID,
                 task: "imageSelection",
-                startTime: startTime,
+                startingTime: startingTime,
                 image: images[currentTrial], 
                 id: images[currentTrial].id,
                 repetition: currentTrial + 1,
@@ -217,11 +217,11 @@ function showSelectedImage() {
             curatedImage.style.display = 'none';
             createFeedbackForm(selectedImages[currentSelectedImageIndex].image, (responses) => { 
                 let reactionTime = new Date().getTime() - startTime;
-                let startTime = new Date().getTime();
+                let startingTime = new Date().getTime();
                 ratings.push({ 
                     SID: participantSID,
                     task: "experimental",
-                    startTime: startTime,
+                    startingTime: startingTime,
                     image: selectedImages[currentSelectedImageIndex],
                     id: selectedImages[currentSelectedImageIndex].image.id,  
                     repetition: currentRepetition,
