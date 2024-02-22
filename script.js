@@ -325,10 +325,10 @@ function generateAndUploadCSV(ratings) {
     xhr.open('POST', uploadUrl, true);
 
     // Optionally set the request header to indicate the content type
-    // xhr.setRequestHeader('Content-Type', 'text/csv;charset=utf-8');
+     xhr.setRequestHeader('Content-Type', 'text/csv;charset=utf-8');
 
     // Retrieve the first non-empty ID as the filename, or use "default" if none found
-    const validEntry = ratings.find(rating => rating.ID && rating.ID.trim().length > 0);
+    const validEntry = ratings.find(rating => rating.id && rating.id.trim().length > 0);
     const filename = (validEntry ? validEntry.ID : "default") + '.csv';
 
     // Set a custom request header with the filename
