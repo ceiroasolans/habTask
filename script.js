@@ -319,7 +319,7 @@ function generateAndUploadCSV(ratings) {
     const header = "SID, Task, startTime, Image, imageID, Repetition, Valence, Arousal, ReactionTime";
     const csvRows = [header];
     for (const rating of ratings) {
-        const row = [rating.SID, rating.task, rating.startTime, rating.image, rating.id, rating.repetition, rating.valence, rating.arousal, rating.reactionTime].join(",");
+        const row = [rating.SID, rating.task, rating.startingTime, rating.image, rating.id, rating.repetition, rating.valence, rating.arousal, rating.reactionTime].join(",");
         csvRows.push(row);
     }
     
