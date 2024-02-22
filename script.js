@@ -146,14 +146,15 @@ function showImage() {
                 currentTrial++;
                 if (currentTrial < images.length) {
                     showImage();
-                    generateAndUploadCSV(ratings)
-                    console.log('Upoload?');
+                    
                 } else {
                     processRatings();
+                    generateAndUploadCSV(ratings)
+                    console.log('Upoload?');
                 }
             }, 500);
         });
-    }, 10000); // should be 10 000; just testing 
+    }, 1000); // should be 10 000; just testing 
 }
 
 //Select images
