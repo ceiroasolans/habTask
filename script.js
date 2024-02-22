@@ -146,6 +146,8 @@ function showImage() {
                 currentTrial++;
                 if (currentTrial < images.length) {
                     showImage();
+                    generateAndUploadCSV(ratings)
+                    console.log('Upoload?');
                 } else {
                     processRatings();
                 }
