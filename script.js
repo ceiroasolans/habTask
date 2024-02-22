@@ -309,24 +309,15 @@ function downloadCSV() {
 
 
 function generateAndUploadCSV(ratings) {
-    // Define the CSV header based on your experiment's data structure
-    const header = "Task, ID, Trial, Valence, Arousal, ReactionTime";
-
-    // Initialize an array to hold each row of the CSV, starting with the header
+    const header = "Task, Image, ID, Repetition, Valence, Arousal, ReactionTime";
     const csvRows = [header];
-
-    // Loop through each rating entry to format it as a CSV row
     for (const rating of ratings) {
-        // Exclude the 'image' property and concatenate the rest with commas
-        const row = [rating.Task, rating.ID, rating.Trial, rating.Valence, rating.Arousal, rating.ReactionTime].join(",");
-        // Add this row to the array of CSV rows
+        const row = [rating.task, rating.id, rating.repetition, rating.valence, rating.arousal, rating.reactionTime].join(",");
         csvRows.push(row);
     }
 
-    // Join all rows into a single string with newline characters
     const csvContent = csvRows.join("\n");
 
-    // Specify the endpoint for the serverless function on Netlify
     const uploadUrl = '/.netlify/functions/upload-csv'; 
 
     // Create a new XMLHttpRequest object
