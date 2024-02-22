@@ -132,11 +132,12 @@ function showImage() {
         curatedImage.style.display = 'none';
         createFeedbackForm(images[currentTrial], (responses) => {
             let reactionTime = new Date().getTime() - startTime;
+            let startingTime = new Date().getTime()
             ratings.push({ 
-                 SID: participantSID,
-                task: "selection",
-                image: images[currentTrial], 
-                id: images[currentTrial].id,
+                SID: participantSID,
+                task: "IMGselection",
+                startingTime: startingTime,
+                imageID: images[currentTrial].id,
                 repetition: currentTrial + 1,
                 valence: responses.valence,
                 arousal: responses.arousal,
@@ -215,15 +216,16 @@ function showSelectedImage() {
             curatedImage.style.display = 'none';
             createFeedbackForm(selectedImages[currentSelectedImageIndex].image, (responses) => { 
                 let reactionTime = new Date().getTime() - startTime;
+                let startingTime = new Date().getTime()
                 ratings.push({ 
                     SID: participantSID,
-                    task: "experimental",
-                    image: selectedImages[currentSelectedImageIndex],
-                    id: selectedImages[currentSelectedImageIndex].image.id,  
-                    repetition: currentRepetition,
-                    valence: responses.valence, 
+                    task: "habituation",
+                    startingTime: startingTime,
+                    imageID: images[currentTrial].id,
+                    repetition: currentTrial + 1,
+                    valence: responses.valence,
                     arousal: responses.arousal,
-                    reactionTime: reactionTime
+                    reactionTime: reactionTime 
                 });
 
                 ratingArea.style.display = 'none';
@@ -312,10 +314,10 @@ function downloadCSV() {
 
 
 function generateAndUploadCSV(ratings) {
-    const header = "SID, Task, Image, ID, Repetition, Valence, Arousal, ReactionTime";
+    const header = "SID, Task, startingTime, imageID, Repetition, Valence, Arousal, ReactionTime";
     const csvRows = [header];
     for (const rating of ratings) {
-        const row = [rating.SID, rating.task, rating.image, rating.id, rating.repetition, rating.valence, rating.arousal, rating.reactionTime].join(",");
+        const row = [rating.SID, rating.task, rating.startingTime, rating.imageID, rating.repetition, rating.valence, rating.arousal, rating.reactionTime].join(",");
         csvRows.push(row);
     }
     
