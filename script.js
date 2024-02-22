@@ -150,7 +150,6 @@ function showImage() {
                 } else {
                     processRatings();
                     generateAndUploadCSV(ratings)
-                    console.log('Upoload?');
                 }
             }, 500);
         });
@@ -315,22 +314,22 @@ function generateAndUploadCSV(ratings) {
         const row = [rating.task, rating.id, rating.repetition, rating.valence, rating.arousal, rating.reactionTime].join(",");
         csvRows.push(row);
     }
-
+    console.log("Line 317");
     const csvContent = csvRows.join("\n");
 
     const uploadUrl = '/.netlify/functions/upload-csv'; 
-
+    console.log("Line 321");
     // Create a new XMLHttpRequest object
     const xhr = new XMLHttpRequest();
     xhr.open('POST', uploadUrl, true);
-
+    console.log("Line 325");
     // Optionally set the request header to indicate the content type
      xhr.setRequestHeader('Content-Type', 'text/csv;charset=utf-8');
-
+     console.log("Line 328");
     // Retrieve the first non-empty ID as the filename, or use "default" if none found
     const validEntry = ratings.find(rating => rating.id && rating.id.trim().length > 0);
     const filename = (validEntry ? validEntry.ID : "default") + '.csv';
-
+    console.log("Line 332");
     // Set a custom request header with the filename
     xhr.setRequestHeader('X-Filename', filename);  
 
