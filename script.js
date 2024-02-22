@@ -137,7 +137,7 @@ function showImage() {
                 SID: participantSID,
                 task: "IMGselection",
                 startingTime: startingTime,
-                image: selectedImages[currentSelectedImageIndex],
+                image: images[currentTrial], 
                 imageID: images[currentTrial].id,
                 repetition: currentTrial + 1,
                 valence: responses.valence,
