@@ -158,7 +158,7 @@ function showImage() {
                 }
             }, 500);
         });
-    }, 1000); // should be 10 000; just testing 
+    }, 5000); // should be 10 000; just testing 
 }
 
 //Select images
@@ -252,7 +252,7 @@ function showSelectedImage() {
                     }
                 }, 500);
             });
-        }, 3000); // for testing. should be 10 000
+        }, 10000); // for testing. should be 10 000
     }
 }
 
