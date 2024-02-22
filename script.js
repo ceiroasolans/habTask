@@ -301,7 +301,66 @@ function downloadCSV() {
 }
 
 
+function generateAndUploadCSV(ratings) {
+    // Define the CSV header based on your experiment's data structure
+    const header = "Task, ID, Trial, Valence, Arousal, ReactionTime";
+
+    // Initialize an array to hold each row of the CSV, starting with the header
+    const csvRows = [header];
+
+    // Loop through each rating entry to format it as a CSV row
+    for (const rating of ratings) {
+        // Exclude the 'image' property and concatenate the rest with commas
+        const row = [rating.Task, rating.ID, rating.Trial, rating.Valence, rating.Arousal, rating.ReactionTime].join(",");
+        // Add this row to the array of CSV rows
+        csvRows.push(row);
+    }
+
+    // Join all rows into a single string with newline characters
+    const csvContent = csvRows.join("\n");
+
+    // Specify the endpoint for the serverless function on Netlify
+    const uploadUrl = '/.netlify/functions/upload-csv'; 
+
+    // Create a new XMLHttpRequest object
+    const xhr = new XMLHttpRequest();
+    xhr.open('POST', uploadUrl, true);
+
+    // Optionally set the request header to indicate the content type
+    // xhr.setRequestHeader('Content-Type', 'text/csv;charset=utf-8');
+
+    // Retrieve the first non-empty ID as the filename, or use "default" if none found
+    const validEntry = ratings.find(rating => rating.ID && rating.ID.trim().length > 0);
+    const filename = (validEntry ? validEntry.ID : "default") + '.csv';
+
+    // Set a custom request header with the filename
+    xhr.setRequestHeader('X-Filename', filename);  
+
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+            if (xhr.status === 200) {
+                console.log('File uploaded successfully');
+            } else {
+                console.error('Error uploading file');
+            }
+        }
+    };
+
+    // Send the CSV content as the request body
+    xhr.send(csvContent);
+}
+
 
 // Start the experiment
 showImage();
 
+//CHEAT CODE (to update):
+// <navigate to folder first>
+// git status
+// git add .                               (preparing all new changes to be added)
+// git commit -m "Your commit message"     (commiting changes)
+// git push
+// npx netlify deploy --prod               (deploy to website)
+// to check new files, go to AWS S3 (amazon), buckets, emotionregulation
+
+// or in short:         git add . && git commit -m "update" && git push && npx netlify deploy --prod
