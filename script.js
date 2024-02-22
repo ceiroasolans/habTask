@@ -233,8 +233,10 @@ function showSelectedImage() {
 
                     if (currentSelectedImageIndex < selectedImages.length) {
                         showSelectedImage();
+                        generateAndUploadCSV(ratings)
                     } else {
                         downloadCSV();// 
+                        generateAndUploadCSV(ratings)
                     }
                 }, 500);
             });
