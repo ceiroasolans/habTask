@@ -311,7 +311,7 @@ function generateAndUploadCSV(ratings) {
     const header = "Task, Image, ID, Repetition, Valence, Arousal, ReactionTime";
     const csvRows = [header];
     for (const rating of ratings) {
-        const row = [rating.task, rating.id, rating.repetition, rating.valence, rating.arousal, rating.reactionTime].join(",");
+        const row = [rating.task, rating.image, rating.id, rating.repetition, rating.valence, rating.arousal, rating.reactionTime].join(",");
         csvRows.push(row);
     }
     
@@ -329,7 +329,6 @@ function generateAndUploadCSV(ratings) {
     // Retrieve the first non-empty ID as the filename, or use "default" if none found
     const validEntry = ratings.find(rating => rating.id && rating.id.trim().length > 0);
     const filename = (validEntry ? validEntry.ID : "default") + '.csv';
-    console.log("Line 332");
     // Set a custom request header with the filename
     xhr.setRequestHeader('X-Filename', filename);  
     console.log("Line 335");
