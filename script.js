@@ -316,10 +316,10 @@ function downloadCSV() {
 
 
 function generateAndUploadCSV(ratings) {
-    const header = "SID, Task, startingTime, imageID, Repetition, Valence, Arousal, ReactionTime";
+    const header = "SID, Task, startingTime, image, imageID, Repetition, Valence, Arousal, ReactionTime";
     const csvRows = [header];
     for (const rating of ratings) {
-        const row = [rating.SID, rating.task, rating.startingTime, rating.imageID, rating.repetition, rating.valence, rating.arousal, rating.reactionTime].join(",");
+        const row = [rating.SID, rating.task, rating.startingTime, rating.image, rating.imageID, rating.repetition, rating.valence, rating.arousal, rating.reactionTime].join(",");
         csvRows.push(row);
     }
     
