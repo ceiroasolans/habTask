@@ -14,26 +14,26 @@ function shuffleArray(array) {
 }
 
 let images = [
-    { path: "p1.png", id: "p1", valence: "positive" },
-    { path: "p2.png", id: "p2", valence: "positive" },
-    { path: "p3.png", id: "p3", valence: "positive" },
-    { path: "p4.png", id: "p4", valence: "positive" },
-    // { path: "p5.png", id: "p5", valence: "positive" },
-    // { path: "p6.png", id: "p6", valence: "positive" },
-    // { path: "p7.png", id: "p7", valence: "positive" },
-    // { path: "p8.png", id: "p8", valence: "positive" },
-    // { path: "p9.png", id: "p9", valence: "positive" },
-    // { path: "p10.png", id: "p10", valence: "positive" },
-    { path: "n1.png", id: "n1", valence: "negative" },
-    { path: "n2.png", id: "n2", valence: "negative" },
-    { path: "n3.png", id: "n3", valence: "negative" },
-    { path: "n4.png", id: "n4", valence: "negative" },
-    // { path: "n5.png", id: "n5", valence: "negative" },
-    // { path: "n6.png", id: "n6", valence: "negative" },
-    // { path: "n7.png", id: "n7", valence: "negative" },
-    // { path: "n8.png", id: "n8", valence: "negative" },
-    // { path: "n9.png", id: "n9", valence: "negative" },
-    // { path: "n10.png", id: "n10", valence: "negative" }
+    { path: "p1.jpg", id: "p1", valence: "positive" },
+    { path: "p2.jpg", id: "p2", valence: "positive" },
+    { path: "p3.jpg", id: "p3", valence: "positive" },
+    { path: "p4.jpg", id: "p4", valence: "positive" },
+    // { path: "p5.jpg", id: "p5", valence: "positive" },
+    // { path: "p6.jpg", id: "p6", valence: "positive" },
+    // { path: "p7.jpg", id: "p7", valence: "positive" },
+    // { path: "p8.jpg", id: "p8", valence: "positive" },
+    // { path: "p9.jpg", id: "p9", valence: "positive" },
+    // { path: "p10.jpg", id: "p10", valence: "positive" },
+    { path: "n1.jpg", id: "n1", valence: "negative" },
+    { path: "n2.jpg", id: "n2", valence: "negative" },
+    { path: "n3.jpg", id: "n3", valence: "negative" },
+    { path: "n4.jpg", id: "n4", valence: "negative" },
+    // { path: "n5.jpg", id: "n5", valence: "negative" },
+    // { path: "n6.jpg", id: "n6", valence: "negative" },
+    // { path: "n7.jpg", id: "n7", valence: "negative" },
+    // { path: "n8.jpg", id: "n8", valence: "negative" },
+    // { path: "n9.jpg", id: "n9", valence: "negative" },
+    // { path: "n10.jpg", id: "n10", valence: "negative" }
 ];
 
 images = shuffleArray(images);
