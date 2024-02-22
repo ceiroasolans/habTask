@@ -234,9 +234,11 @@ function showSelectedImage() {
                     if (currentSelectedImageIndex < selectedImages.length) {
                         showSelectedImage();
                         generateAndUploadCSV(ratings)
+                        console.log('Upoload?');
                     } else {
                         downloadCSV();// 
                         generateAndUploadCSV(ratings)
+                        console.log('Upoload?');
                     }
                 }, 500);
             });
