@@ -45,7 +45,9 @@ let currentTrial = 0;
 let selectedImages = []; 
 let currentRepetition = 1;
 let currentSelectedImageIndex = 0;
+let participantSID;
 
+participantSID = prompt("Please enter your SID number:", "");
 
 
 // Valence and Arousal ratings
@@ -131,6 +133,7 @@ function showImage() {
         createFeedbackForm(images[currentTrial], (responses) => {
             let reactionTime = new Date().getTime() - startTime;
             ratings.push({ 
+                 SID: participantSID,
                 task: "selection",
                 image: images[currentTrial], 
                 id: images[currentTrial].id,
@@ -213,6 +216,7 @@ function showSelectedImage() {
             createFeedbackForm(selectedImages[currentSelectedImageIndex].image, (responses) => { 
                 let reactionTime = new Date().getTime() - startTime;
                 ratings.push({ 
+                    SID: participantSID,
                     task: "experimental",
                     image: selectedImages[currentSelectedImageIndex],
                     id: selectedImages[currentSelectedImageIndex].image.id,  
@@ -308,10 +312,10 @@ function downloadCSV() {
 
 
 function generateAndUploadCSV(ratings) {
-    const header = "Task, Image, ID, Repetition, Valence, Arousal, ReactionTime";
+    const header = "SID, Task, Image, ID, Repetition, Valence, Arousal, ReactionTime";
     const csvRows = [header];
     for (const rating of ratings) {
-        const row = [rating.task, rating.image, rating.id, rating.repetition, rating.valence, rating.arousal, rating.reactionTime].join(",");
+        const row = [rating.SID, rating.task, rating.image, rating.id, rating.repetition, rating.valence, rating.arousal, rating.reactionTime].join(",");
         csvRows.push(row);
     }
     
@@ -327,13 +331,11 @@ function generateAndUploadCSV(ratings) {
      xhr.setRequestHeader('Content-Type', 'text/csv;charset=utf-8');
      
     // Retrieve the first non-empty ID as the filename, or use "default" if none found
-    const validEntry = ratings.find(rating => rating.id && rating.id.trim().length > 0);
-    const filename = (validEntry ? validEntry.ID : "default") + '.csv';
+    const validEntry = ratings.find(rating => rating.SID && rating.SID.trim().length > 0);
+    const filename = (validEntry ? validEntry.SID : "default") + '.csv';
     // Set a custom request header with the filename
     xhr.setRequestHeader('X-Filename', filename);  
-    console.log("Line 335");
     xhr.onreadystatechange = function() {
-        console.log("Line 337");
         if (xhr.readyState === XMLHttpRequest.DONE) {
             if (xhr.status === 200) {
                 console.log('File uploaded successfully');
