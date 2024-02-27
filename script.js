@@ -236,7 +236,7 @@ function showSelectedImage() {
                     fixationArea.style.display = 'none';
 
                     currentRepetition++;
-                    if (currentRepetition > 2) { // again, for testing. This should be 10
+                    if (currentRepetition > 10) { // again, for testing. This should be 10
                         currentRepetition = 1;
                         currentSelectedImageIndex++;
                     }
